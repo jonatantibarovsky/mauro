@@ -1,0 +1,117 @@
+.mobileContainer {
+    position: absolute;
+    top: 50;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 1000;
+}
+
+.menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    padding: 0;
+    outline: none;
+    position: absolute;
+    z-index: 10000;
+    right: 10px;
+    top: 10px;
+  }
+
+
+  .white {
+    animation: turnWhite 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-animation-fill-mode: forwards; 
+}
+
+.black {
+    animation: turnBlack 1000ms cubic-bezier(0.4, 0. 0.2, 1);
+    -webkit-animation-fill-mode: forwards;
+}
+@keyframes turnBlack {
+    from {
+        stroke: white;
+    }
+    to {
+        stroke: black;
+    }
+}
+
+@keyframes turnWhite {
+    from {
+        stroke: black;
+    }
+    to {
+        stroke: white;
+    }
+}
+
+  .line {
+    fill: none;
+    stroke: #D1D0D1;
+    stroke-width: 6;
+    transition: stroke-dasharray 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+      stroke-dashoffset 1000ms cubic-bezier(0.4, 0, 0.2, 1),
+  }
+
+  .line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+  }
+  .line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+  }
+  .opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+  .opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+  }
+  .opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+  }
+
+.navContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+@media only screen and (max-width: 650px) {
+  .navContainer {
+    height: 500px;
+    background: #262626;
+    flex-direction: column;
+    position: absolute;
+    top: -500px;
+  }
+
+}
+
+.menuEnter {
+  top: 0;
+}
+
+.menuExit {
+  transform: translate3d(0, -500px, 0)
+}
+
+#menu {
+  transition: 1s ease-out;
+}

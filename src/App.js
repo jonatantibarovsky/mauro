@@ -1,25 +1,138 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, useRef, useReducer } from 'react'
+// components
+import Navbar from './components/Navbar'
+import LandingSection from './components/LandingSection'
+import Introduction from './components/Introduction'
+import WeeklyMenu from './components/WeeklyMenu'
+import FoodMenu from './components/FoodMenu'
+import DrinkMenu from './components/DrinkMenu'
+import Events from './components/Events'
+import Delivery from './components/Delivery'
+import Gallery from './components/Gallery'
+import ContactMapSection from './components/ContactMapSection'
+import Contact from './components/Contact'
 
-function App() {
+// assets
+import Background from './assets/BG@2x.jpg'
+
+// other
+import { makeStyles } from '@material-ui/core/styles'
+
+import { client } from './client'
+
+
+const useStyles = makeStyles({
+  container: {
+    width: '100%',
+    border: '3px',
+
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  backgroundImage: {
+    backgroundImage: `url(${Background})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+  },
+  subContainer: {
+    width: '100%',
+    maxWidth: 1400,
+    margin: '0 auto'
+  }
+})
+
+const App = () => {
+  const classes = useStyles()
+
+  const [language, setLanguage] = useState('hun')
+  const [weeklyData, setWeeklyData] = useState(null)
+  const [foodMenu, setFoodMenu] = useState(null)
+  const [drinkMenu, setDrinkMenu] = useState(null)
+  const [showMenu, setShowMenu] = useState(false)
+
+  const aboutUsRef = useRef(null)
+  const weeklyRef = useRef(null)
+  const foodRef = useRef(null)
+  const drinkRef = useRef(null)
+  const eventRef = useRef(null)
+  const deliveryRef = useRef(null)
+  const contactRef = useRef(null)
+
+  useEffect(() => {
+    let foodMenuSections = []
+    let drinkMenuSections = []
+    client.getEntries()
+      .then((response) => {
+        response.items.forEach(item => {
+          if (item.sys.contentType.sys.id === 'foodMenuSection') {
+            foodMenuSections.push(item)
+          } else if (item.sys.contentType.sys.id === 'weeklyMenu') {
+            setWeeklyData(item.fields)
+          } else if (item.sys.contentType.sys.id === 'drinkMenuSection') {
+            drinkMenuSections.push(item)
+          }
+        })
+        setFoodMenu(foodMenuSections)
+        setDrinkMenu(drinkMenuSections)
+      })
+      .catch(console.error)
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.container}>
+      <Navbar 
+        language={language}
+        aboutUsRef={aboutUsRef}
+        showMenu={showMenu}
+        setShowMenu={setShowMenu}
+      />
+      <div className={classes.backgroundImage}>
+        <LandingSection
+          language={language}
+        />
+        <div className={classes.subContainer}>
+          <Introduction
+            language={language}
+            myRef={aboutUsRef}
+          />
+          <WeeklyMenu
+            language={language}
+            data={weeklyData}
+            myRef={weeklyRef}
+          />
+          <FoodMenu
+            language={language}
+            foodMenu={foodMenu}
+            myRef={foodRef}
+          />
+          <DrinkMenu 
+            language={language}
+            data={drinkMenu}
+            myRef={drinkRef}
+          />
+          <Events
+            language={language}
+            myRef={eventRef}
+          />
+          <Delivery 
+            language={language}
+            myRef={deliveryRef}
+          />
+        </div>
+      </div>
+      <Gallery />
+      <ContactMapSection 
+        language={language}
+        myRef={contactRef}
+      />
+      <Contact />
+
     </div>
-  );
+  )
 }
 
 export default App;
