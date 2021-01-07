@@ -134,11 +134,11 @@ const useStyles = makeStyles(theme => ({
 
     },
     olives: {
-        height: '100%',
+        height: '120%',
         position: 'absolute',
         left: 0,
         [theme.breakpoints.down(800)]: {
-            height: 100,
+            height: 130,
             position: 'static',
             alignSelf: 'flex-start'
         }

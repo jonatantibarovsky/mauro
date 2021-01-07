@@ -11,9 +11,11 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         height: 'auto',
         position: 'relative',
-        marginTop: '10%',
         display: 'flex',
-        marginBottom: 50
+        marginBottom: 50,
+        [theme.breakpoints.down(1000)]: {
+            marginTop: '10%'
+        }
         //background: 'blue',
     },
     subContainer: {
