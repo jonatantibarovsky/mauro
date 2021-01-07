@@ -42,12 +42,13 @@ const Day = ({
     soup,
     aMenu,
     bMenu,
-    cMenu
+    cMenu,
+    day
 }) => {
     const classes = useStyles()
     return (
         <div className={classes.container}>
-            <Typography className={classes.day}>Hetfo</Typography>
+            <Typography className={classes.day}>{day}</Typography>
             <Typography className={classes.text}>
                 {soup && soup}
             </Typography>

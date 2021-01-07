@@ -34,13 +34,7 @@ const useStyles = makeStyles(theme => ({
             
         }
     },
-    tomatoImage: {
-        position: 'absolute',
-        right: 0,
-        top: 0,
-        height: '20%',
-        width: 'auto'
-    },
+    
     heading: {
         fontFamily: 'Sarpanch',
         fontSize: 50,
@@ -93,6 +87,15 @@ const useStyles = makeStyles(theme => ({
         fontSize: 18,
         color: '#D1D0D1',
         fontFamily: 'PT Sans Narrow'
+    },
+    tomato: {
+        position: 'absolute',
+        right: 0,
+        height: '40%',
+        [theme.breakpoints.down(1200)]: {
+            height: '35%',
+            top: '-80px'
+        }
     }
 }))
 
@@ -108,7 +111,7 @@ const Introduction = ({
     } else {
         return (
             <div className={classes.container} id='intro'>
-                
+                <img src={Tomato} className={classes.tomato}/>
                 <div className={classes.introImageContainer}>
                     <img src={Intro} className={classes.introImage} />
                 </div>

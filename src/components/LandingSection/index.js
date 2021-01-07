@@ -6,6 +6,7 @@ import Landing from '../../assets/hero_video.png'
 import Logo from '../../assets/logo_hero.png'
 import Video from '../../assets/IMG_0012.MP4'
 import Mobile from './Mobile'
+import Tomato from '../../assets/bemtatkozas_tomato.png'
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -64,7 +65,17 @@ const useStyles = makeStyles(theme => ({
         height: '100%',
         objectFit: 'cover',
         zIndex: 1
-    }
+    },
+    gradient: {
+        zIndex: 2,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'linear-gradient(180deg, #00000000 0%, #1A1A1C 100%)'
+    },
+    
 }))
 
 const LandingSection = ({
@@ -76,11 +87,15 @@ const LandingSection = ({
     const mobile = useMediaQuery(theme.breakpoints.down('sm'))
     if (mobile) {
         return (
-            <Mobile />
+            <Mobile language={language}/>
         )
     } else {
         return (
             <div className={classes.container} ref={myRef}>
+                
+                <div className={classes.gradient}>
+
+                </div>
                 <video 
                     className={classes.video}
                     autoPlay

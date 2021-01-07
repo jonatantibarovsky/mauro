@@ -3,6 +3,8 @@ import { Typography } from '@material-ui/core'
 
 // components
 import Image from './Image'
+import Heading from '../SubComponents/Heading'
+import Pic from '../../assets/galeria_pic.png'
 
 const useStyles = makeStyles(theme => ({
     container: {   
@@ -23,17 +25,24 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const Gallery = () => {
+const Gallery = ({
+    data,
+    language
+}) => {
     const classes = useStyles()
-
     return (
         <div className={classes.container}>
-            <Image />
-            <Image />
-            <Image />
-            <Image />
-            <Image />
-            <Image />
+            <Heading 
+                heading={language === 'hun' ? 'Galéria' : 'Gallery'}
+                image={Pic}
+            />
+            {data && 
+                data.galery.map((item, i) => {
+                    return (
+                        <Image data={item} key={i}/>
+                    )
+                })
+            }
         </div>
     )
 }

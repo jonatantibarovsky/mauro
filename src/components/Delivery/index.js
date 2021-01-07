@@ -5,6 +5,8 @@ import Moped from '../../assets/hazhoz_moped.png'
 import Boxes from '../../assets/hazhoz_boxes.png'
 import Texture from '../../assets/hazhoz_texture.png'
 import Logo from '../../assets/logo_hero.png'
+import Netpincer from '../../assets/hazhozszallitas_netpincer.png'
+import Wolt from '../../assets/hazhozszallitas_Wolt.png'
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -12,6 +14,9 @@ const useStyles = makeStyles(theme => ({
         margin: '0 auto',
         marginBottom: 50,
         paddingBottom: 500,
+        [theme.breakpoints.down('xs')]: {
+            paddingBottom: 300
+        }
     },
     headerContainer: {
         display: 'flex',
@@ -103,7 +108,8 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Delivery = ({
-    language
+    language,
+    delivery
 }) => {
     const classes = useStyles()
     return (
@@ -113,11 +119,12 @@ const Delivery = ({
                 <img src={Boxes} className={classes.boxes} />
                 <img src={Moped} className={classes.moped} />
             </div>
+            {delivery &&
             <div className={classes.selectionContainer}>
-                <Item />
-                <Item />
-                <Item />
-            </div>
+                {delivery.telefon && <Item company='telefon'/>}
+                {delivery.telefon && <Item company='wolt'/>}
+                {delivery.telefon && <Item company='netpincer'/>}
+            </div>}
         </div>
     )
 }
@@ -128,12 +135,18 @@ const Item = ({
     const classes = useStyles()
     return (
         <div className={classes.itemContainer}>
+            {company &&
             <div className={classes.black}>
                 <div style={{height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-around'}}>
-                    <img src={Logo} className={classes.logo}/>
-                    <a href='tel:+36302346105' className={classes.button}>rendeles</a>
+                    {company === 'telefon' && <img src={Logo} className={classes.logo}/>}
+                    {company === 'wolt' && <img src={Wolt} className={classes.logo}/>}
+                    {company === 'netpincer' && <img src={Netpincer} className={classes.logo}/>}
+                    
+                    {company === 'telefon' && <a href='tel:+36302346105' className={classes.button}>rendeles</a>}
+                    {company === 'wolt' && <a href='https://www.wolt.com/en/hun/szekesfehervar/restaurant/caffe-mauro' target="_blank" style={{marginBottom: 15}} className={classes.button}>rendeles</a>}
+                    {company === 'netpincer' && <a href='https://www.netpincer.hu/restaurant/a2mk/caffe-mauro#' target="_blank" style={{marginBottom: 15}} className={classes.button}>rendeles</a>}
                 </div>
-            </div>
+            </div>}
 
         </div>
     )

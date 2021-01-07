@@ -103,7 +103,7 @@ const Events = ({
 
                         <div className={classes.buttonContainer}>
                             <a href='tel:+36302346105' style={{ marginBottom: 30 }} className={classes.button}>telefon</a>
-                            <a href='tel:+36302346105' className={classes.button}>email</a>
+                            <a href='ristorantecaffemaurofehervar@gmail.com' className={classes.button}>email</a>
                         </div>
 
                     </div>
@@ -132,8 +132,8 @@ const Events = ({
                     </Typography>
                     {mobile == false &&
                         (<div className={classes.buttonContainer}>
-                            <a href='tel:+36302346105' style={{ marginRight: 30 }} className={classes.button}>rendeles</a>
-                            <a href='tel:+36302346105' className={classes.button}>rendeles</a>
+                            <a href='tel:+36302346105' style={{ marginRight: 30 }} className={classes.button}>telefon</a>
+                            <a href='ristorantecaffemaurofehervar@gmail.com' className={classes.button}>email</a>
                         </div>)}
                 </div>
 

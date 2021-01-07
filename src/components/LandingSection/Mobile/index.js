@@ -97,7 +97,9 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const LandingSection = () => {
+const LandingSection = ({
+    language
+}) => {
     const classes = useStyles()
     return (
         <div>
@@ -107,20 +109,20 @@ const LandingSection = () => {
             <div className={classes.details}>
                 <div className={classes.detail1}>
                     <div>
-                    <Typography className={classes.header}>nyitvatartás</Typography>
+                    <Typography className={classes.header}>{language === 'hun' ? 'nyitvatartás' : 'opening times'}</Typography>
                     <Typography className={classes.text}>H-P 11:00 - 20:00</Typography>
                     <Typography className={classes.text}>Sz-V 12:00 - 21:00</Typography>
                     </div>
                 </div>
                 <div className={classes.detail2}>
                     
-                    <Typography className={classes.header}>rendelés</Typography>
+                    <Typography className={classes.header}>{language === 'hun' ? 'rendelés' : 'delivery'}</Typography>
                     <Typography className={classes.text}>+3622304141</Typography>
                     
                 </div>
                 <div className={classes.detail3}>
                     <div>
-                    <Typography className={classes.header}>cím</Typography>
+                    <Typography className={classes.header}>{language === 'hun' ? 'cím' : 'address'}</Typography>
                     <Typography className={classes.text}>Székesfehérvár</Typography>
                     <Typography className={classes.text}>Kossuth utca 4.</Typography>
                     </div>

@@ -6,7 +6,7 @@ import Food from '../Food'
 const useStyles = makeStyles(theme => ({
     container: {
         marginBottom: 150,
-        width: '45%',
+        width: '90%',
         [theme.breakpoints.down('sm')]: {
             width: '70%'
         },
@@ -30,7 +30,13 @@ const MenuSection = ({
     const classes = useStyles()
     return (
         <div className={classes.container}>
-            <Typography className={classes.title}>{data.title && data.title}</Typography>
+            {
+                language === 'hun'
+                ?
+                <Typography className={classes.title}>{data.title && data.title}</Typography>
+                :
+                <Typography className={classes.title}>{data.titleAngol && data.titleAngol}</Typography>
+            }
             {
                 data.foodName.map((item, i) => {
                     if (language == 'hun') {

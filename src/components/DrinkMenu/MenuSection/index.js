@@ -6,7 +6,7 @@ import Drink  from '../Drink'
 const useStyles = makeStyles(theme => ({
     container: {
         marginBottom: 150,
-        width: '45%',
+        width: '90%',
         [theme.breakpoints.down('sm')]: {
             width: '70%'
         },
@@ -41,7 +41,7 @@ const MenuSection = ({
     return (
         <div className={classes.container}>
             <Typography className={classes.title}>{title && title}</Typography>
-            {
+            {data &&
                 data.drinkName.map((item, i) => {
                     if (language == 'hun') {
                         return (
@@ -70,7 +70,7 @@ const MenuSection = ({
                     }
                 })
             }
-            <Typography className={classes.bottomText}>{data.bottom && data.bottom}</Typography>
+            <Typography className={classes.bottomText}>{data.bottom !== 'semmi' && data.bottom}</Typography>
         </div>
     )
 }

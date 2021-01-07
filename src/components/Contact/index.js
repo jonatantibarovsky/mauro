@@ -61,6 +61,7 @@ const useStyles = makeStyles(theme => ({
         fontFamily: 'PT Sans Narrow',
         color: '#262626',
         fontSize: 18,
+        textDecoration: 'none',
         [theme.breakpoints.down('xs')]: {
             fontSize: 14
         }
@@ -87,7 +88,7 @@ const Contact = () => {
                         <Typography className={classes.text}>@mauroetterem</Typography>
                     </div>
                     <Typography className={classes.contactDetails}>©CafféMauro 2020</Typography>
-                    <Typography className={classes.contactDetails}>Designed by TASNADI&co</Typography>
+                    <a href='https://www.tasnadi.net' target='_blank' className={classes.contactDetails}>Designed by TASNADI&CO</a>
 
                 </div>
                 <div className={classes.logoContainer}>

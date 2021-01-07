@@ -54,6 +54,8 @@ const App = () => {
   const [foodMenu, setFoodMenu] = useState(null)
   const [drinkMenu, setDrinkMenu] = useState(null)
   const [showMenu, setShowMenu] = useState(false)
+  const [gallery, setGallery] = useState(null)
+  const [delivery, setDelivery] = useState(null)
 
   const aboutUsRef = useRef(null)
   const weeklyRef = useRef(null)
@@ -75,6 +77,10 @@ const App = () => {
             setWeeklyData(item.fields)
           } else if (item.sys.contentType.sys.id === 'drinkMenuSection') {
             drinkMenuSections.push(item)
+          } else if (item.sys.contentType.sys.id === 'galery') {
+            setGallery(item.fields)
+          } else if (item.sys.contentType.sys.id === 'delivery') {
+            setDelivery(item.fields)
           }
         })
         setFoodMenu(foodMenuSections)
@@ -82,10 +88,12 @@ const App = () => {
       })
       .catch(console.error)
   }, [])
+
   return (
     <div className={classes.container}>
       <Navbar 
         language={language}
+        setLanguage={setLanguage}
         aboutUsRef={aboutUsRef}
         showMenu={showMenu}
         setShowMenu={setShowMenu}
@@ -121,10 +129,11 @@ const App = () => {
           <Delivery 
             language={language}
             myRef={deliveryRef}
+            delivery={delivery}
           />
         </div>
       </div>
-      <Gallery />
+      <Gallery data={gallery}/>
       <ContactMapSection 
         language={language}
         myRef={contactRef}

@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         height: '100%',
         alignItems: 'center',
-        [theme.breakpoints.down(650)]: {
+        position: 'relative',
+        [theme.breakpoints.down(800)]: {
             height: 500,
             background: '#262626',
             flexDirection: 'column',
@@ -26,7 +27,7 @@ const useStyles = makeStyles(theme => ({
         marginRight: 20,
         marginLeft: 20,
         cursor: 'pointer',
-        [theme.breakpoints.down(650)]: {
+        [theme.breakpoints.down(800)]: {
             marginTop: 30
         }
     },
@@ -51,40 +52,111 @@ const Nav = ({
     myRef5,
     myRef6,
     myRef7,
-    showMenu
+    showMenu,
+    setLanguage
 }) => {
     const classes = useStyles()
     const theme = useTheme()
     const scroll1 = () => myRef1.current.scrollIntoView()
-    const mobile = useMediaQuery(theme.breakpoints.down(650))
+    const mobile = useMediaQuery(theme.breakpoints.down(800))
 
-    console.log('showMenu', showMenu)
+    if (mobile) {
+        return (
+            <div className={`navContainer ${showMenu ? `menuEnter` : `menuExit`}`} id='menu'>
+                <Link to='intro' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'rólunk' : 'about us'}</Typography>
+                </Link>
+                <Link to='weekly' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'heti menü' : 'weekly menu'}</Typography>
+                </Link>
+                <Link to='menu' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'étlap' : 'menu'}</Typography>
+                </Link>
+                <Link to='drinkMenu' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'itallap' : 'drinks menu'}</Typography>
+                </Link>
+                <Link to='events' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'rendezvények' : 'events'}</Typography>
+                </Link>
+                <Link to='delivery' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'kiszállítás' : 'delivery'}</Typography>
+                </Link>
+                <Link to='contact' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'kapcsolat' : 'contact'}</Typography>
+                </Link>
+                <div style={{display: 'flex', right: 20, position: 'absolute'}}>
+                    <Typography 
+                        className={classes.button} 
+                        style={{margin: '0 3px', fontWeight: language === 'hun' && 700}}
+                        onClick={() => {
+                            setLanguage('hun')
+                        }}
+                    >
+                        HU
+                    </Typography>
+                    <Typography className={classes.button} style={{margin: '0 3px'}}>|</Typography>
+                    <Typography 
+                        className={classes.button} 
+                        style={{margin: '0 3px', fontWeight: language !== 'hun' && 700}}
+                        onClick={() => {
+                            setLanguage('en')
+                        }}
+                    >
+                        EN
+                    </Typography>
+                </div>
+            </div>
+        )
+    } else {
+        return (
+            <div className={classes.container}>
+                <Link to='intro' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'rólunk' : 'about us'}</Typography>
+                </Link>
+                <Link to='weekly' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'heti menü' : 'weekly menu'}</Typography>
+                </Link>
+                <Link to='menu' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'étlap' : 'menu'}</Typography>
+                </Link>
+                <Link to='drinkMenu' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'itallap' : 'drinks menu'}</Typography>
+                </Link>
+                <Link to='events' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'rendezvények' : 'events'}</Typography>
+                </Link>
+                <Link to='delivery' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'kiszállítás' : 'delivery'}</Typography>
+                </Link>
+                <Link to='contact' smooth={true}>
+                    <Typography className={classes.button}>{language === 'hun' ? 'kapcsolat' : 'contact'}</Typography>
+                </Link>
+                <div style={{display: 'flex', right: 20, position: 'absolute'}}>
+                    <Typography 
+                        className={classes.button} 
+                        style={{margin: '0 3px', fontWeight: language === 'hun' && 700}}
+                        onClick={() => {
+                            setLanguage('hun')
+                        }}
+                    >
+                        HU
+                    </Typography>
+                    <Typography className={classes.button} style={{margin: '0 3px'}}>|</Typography>
+                    <Typography 
+                        className={classes.button} 
+                        style={{margin: '0 3px', fontWeight: language !== 'hun' && 700}}
+                        onClick={() => {
+                            setLanguage('en')
+                        }}
+                    >
+                        EN
+                    </Typography>
+                </div>
+            </div>
+        )
+    }
 
-    return (
-        <div className={`navContainer ${showMenu ? `menuEnter` : `menuExit`}`} id='menu'>
-            <Link to='intro' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'rólunk' : 'about us'}</Typography>
-            </Link>
-            <Link to='weekly' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'heti menü' : 'weekly menu'}</Typography>
-            </Link>
-            <Link to='menu' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'étlap' : 'menu'}</Typography>
-            </Link>
-            <Link to='drinkMenu' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'itallap' : 'drinks menu'}</Typography>
-            </Link>
-            <Link to='events' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'rendezvények' : 'events'}</Typography>
-            </Link>
-            <Link to='delivery' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'kiszállítás' : 'delivery'}</Typography>
-            </Link>
-            <Link to='contact' smooth={true}>
-                <Typography className={classes.button}>{language === 'hun' ? 'kapcsolat' : 'contact'}</Typography>
-            </Link>
-        </div>
-    )
+    
 
 
 }

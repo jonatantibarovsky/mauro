@@ -12,7 +12,8 @@ const useStyles = makeStyles({
         marginTop: '10%',
         display: 'flex',
         flexDirection: 'column',
-        padding: '0 10px'
+        padding: '0 10px',
+        position: 'relative'
         //background: 'blue',
     },
     introImage: {
@@ -71,6 +72,12 @@ const useStyles = makeStyles({
         fontSize: 16,
         color: '#D1D0D1',
         fontFamily: 'PT Sans Narrow'
+    },
+    tomato: {
+        position: 'absolute',
+        right: 0,
+        height: '15%',
+        top: '-50px'
     }
 })
 
@@ -79,7 +86,7 @@ const Mobile = () => {
 
     return (
         <div className={classes.container}>
-
+            <img src={Tomato} className={classes.tomato}/>
             <div className={classes.textContainer}>
                 <Typography className={classes.heading}>bemutatkozás</Typography>
                 <Typography className={classes.name}>
