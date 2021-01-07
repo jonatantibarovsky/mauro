@@ -16,6 +16,14 @@ const useStyles = makeStyles(theme => ({
         marginBottom: 50
         //background: 'blue',
     },
+    subContainer: {
+        width: '100%',
+        height: 'auto',
+        position: 'relative',
+        marginTop: '10%',
+        display: 'flex',
+        marginBottom: 50
+    },
     introImage: {
 
         height: 700,
@@ -112,6 +120,7 @@ const Introduction = ({
         return (
             <div className={classes.container} id='intro'>
                 <img src={Tomato} className={classes.tomato}/>
+                <div className={classes.subContainer}>
                 <div className={classes.introImageContainer}>
                     <img src={Intro} className={classes.introImage} />
                 </div>
@@ -136,6 +145,7 @@ const Introduction = ({
                         }
                     </Typography>
                     </div>
+                </div>
                 </div>
             </div>
         )

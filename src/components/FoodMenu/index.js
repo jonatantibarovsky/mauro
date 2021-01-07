@@ -12,10 +12,10 @@ import Pizza2 from '../../assets/pizza2.png'
 
 const useStyles = makeStyles(theme => ({
     container: {
-        width: '95%',
+        width: '100%',
         margin: '0 auto',
         marginTop: 120,
-        marginLeft: 50,
+
         display: 'flex',
         flexDirection: 'column',
         position: 'relative',
@@ -85,7 +85,7 @@ const FoodMenu = ({
 
     return (
         <div className={classes.container} id='menu'>
-            {pizza && <img src={Pizza1} className={classes.pizza}/>}
+            {pizza && <img src={Pizza1} className={classes.pizza} />}
             {/* <div className={classes.menuImageContainer}>
                 <img src={Pizza} className={classes.pizza}/>
                 <Typography className={classes.menu}>étlap</Typography>
@@ -96,61 +96,63 @@ const FoodMenu = ({
                 image={Pizza}
                 mirror={true}
             />
-            {mobile === false &&
-                foodMenu &&
-                <div className={classes.columns}>
+            <div style={{width: '90%', margin: '0 auto'}}>
+                {mobile === false &&
+                    foodMenu &&
+                    <div className={classes.columns}>
 
-                    {foodMenu &&
-                        foodMenu.map((item, i) => {
-                            return (
-                                <MenuSection
-                                    data={item.fields}
-                                    language={language}
-                                    key={i}
-                                />)
-                        })
-                    }
-                </div>}
-            {mobile &&
-                <div
-                    style={{
-                        width: '100%',
-                        display: 'flex'
-                    }}
-                >
-                    <div style={{ width: '50%', }}>
                         {foodMenu &&
                             foodMenu.map((item, i) => {
-                                if (i % 2 === 0) {
-                                    return (
-                                        <MenuSection
-                                            data={item.fields}
-                                            language={language}
-                                            key={i}
-                                        />
-                                    )
-                                }
+                                return (
+                                    <MenuSection
+                                        data={item.fields}
+                                        language={language}
+                                        key={i}
+                                    />)
                             })
                         }
-                    </div>
-                    <div style={{ width: '50%', }}>
-                        {foodMenu &&
-                            foodMenu.map((item, i) => {
-                                if (i % 2 === 1) {
-                                    return (
-                                        <MenuSection
-                                            data={item.fields}
-                                            language={language}
-                                            key={i}
-                                        />
-                                    )
-                                }
-                            })
-                        }
-                    </div>
+                    </div>}
+                {mobile &&
+                    <div
+                        style={{
+                            width: '100%',
+                            display: 'flex'
+                        }}
+                    >
+                        <div style={{ width: '50%', }}>
+                            {foodMenu &&
+                                foodMenu.map((item, i) => {
+                                    if (i % 2 === 0) {
+                                        return (
+                                            <MenuSection
+                                                data={item.fields}
+                                                language={language}
+                                                key={i}
+                                            />
+                                        )
+                                    }
+                                })
+                            }
+                        </div>
+                        <div style={{ width: '50%', }}>
+                            {foodMenu &&
+                                foodMenu.map((item, i) => {
+                                    if (i % 2 === 1) {
+                                        return (
+                                            <MenuSection
+                                                data={item.fields}
+                                                language={language}
+                                                key={i}
+                                            />
+                                        )
+                                    }
+                                })
+                            }
+                        </div>
 
-                </div>}
-                {pizza && <img src={Pizza2} className={classes.pizza2}/>}
+                    </div>}
+            </div>
+            {pizza && <img src={Pizza2} className={classes.pizza2} />}
         </div>
     )
 }

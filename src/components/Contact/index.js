@@ -85,7 +85,7 @@ const Contact = () => {
                 <div>
                     <div className={classes.facebookContainer}>
                         <img src={Facebook} className={classes.facebook}/>
-                        <Typography className={classes.text}>@mauroetterem</Typography>
+                        <a href='https://www.facebook.com/mauroetterem' target='_blank' style={{textDecoration: 'none'}} className={classes.text}>@mauroetterem</a>
                     </div>
                     <Typography className={classes.contactDetails}>©CafféMauro 2020</Typography>
                     <a href='https://www.tasnadi.net' target='_blank' className={classes.contactDetails}>Designed by TASNADI&CO</a>
