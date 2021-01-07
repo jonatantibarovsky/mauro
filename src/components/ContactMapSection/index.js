@@ -107,7 +107,9 @@ const ContactMapSection = ({
                 </div>
 
             </div>
+            <a href='https://goo.gl/maps/fEZzDFxKdHHCrW2o8'>
             <img src={Map} className={classes.map} />
+            </a>
 
         </div>
     )
