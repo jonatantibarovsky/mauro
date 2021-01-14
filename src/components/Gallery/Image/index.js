@@ -6,8 +6,8 @@ import Image1 from '../../../assets/galeria_1.jpg'
 
 const useStyles = makeStyles(theme => ({
     image: { 
-        width: '100%',
-        height: 'auto',
+        width: 330,
+        height: 330,
         maxWidth: 330,
         borderRadius: 5,
         objectPosition: 'cover',
@@ -16,13 +16,22 @@ const useStyles = makeStyles(theme => ({
         marginTop: 10,
         marginLeft: 10,
         marginBottom: 10,
-        [theme.breakpoints.down(1250)]: {
-            width: '43%'
+        [theme.breakpoints.down(1100)]: {
+            width: 250,
+            height: 250
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 200,
+            height: 200
+        },
+        [theme.breakpoints.down('xs')]: {
+            width: 110,
+            height: 110
         }
     },
     video: { 
-        width: '100%',
-        height: 'auto',
+        width: 330,
+        height: 330,
         maxWidth: 330,
         borderRadius: 5,
         objectFit: 'cover',
@@ -31,8 +40,17 @@ const useStyles = makeStyles(theme => ({
         marginTop: 10,
         marginLeft: 10,
         marginBottom: 10,
-        [theme.breakpoints.down(1250)]: {
-            width: '43%'
+        [theme.breakpoints.down(1100)]: {
+            width: 250,
+            height: 250
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 200,
+            height: 200
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: 110,
+            height: 110
         }
     }
 }))
@@ -46,16 +64,18 @@ const Image = ({
         <>
             {data &&
                 data.fields.title === 'video' ?
-                <video 
-                    className={classes.video}
-                    autoPlay
-                    muted
-                    disablePictureInPicture
-                    loop
-                    playsInline
-                >
-                    <source src={data.fields.file.url} />
-                </video>
+                
+                    <video 
+                        className={classes.video}
+                        autoPlay
+                        muted
+                        disablePictureInPicture
+                        loop
+                        playsInline
+                    >
+                        <source src={data.fields.file.url} />
+                    </video>
+                
                 :
                 <img src={data.fields.file.url} className={classes.image}/>
             }

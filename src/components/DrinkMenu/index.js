@@ -11,7 +11,15 @@ const useStyles = makeStyles(theme => ({
     container: {
         width: '100%',
         margin: '0 auto',
-        marginTop: 100
+        marginTop: 100,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    subContainer: {
+        width: '100%',
+        maxWidth: 1400
     },
     columns: {
         display: 'flex',
@@ -35,13 +43,20 @@ const useStyles = makeStyles(theme => ({
     },
     apricot: {
         width: '20%',
-        maxWidth: 200
+        maxWidth: 200,
+        position: 'absolute',
+        left: 0,
+        [theme.breakpoints.down(1150)]: {
+            position: 'static'
+        }
     },
     apricotContainer: {
         display: 'flex',
         flexDirection: 'row-reverse',
         alignItems: 'flex-end',
-        justifyContent: 'space-between',
+        width: '100%',
+        justifyContent: 'center',
+        position: 'relative',
         [theme.breakpoints.down(600)]: {
             flexDirection: 'column',
             alignItems: 'flex-start'
@@ -65,6 +80,7 @@ const DrinkMenu = ({
                 />
                 <img src={Apricot} className={classes.apricot} />
             </div>
+            <div className={classes.subContainer}> 
             <div style={{width: '90%', margin: '0 auto'}}>
                 {mobile &&
                     <div className={classes.columns}>
@@ -72,7 +88,6 @@ const DrinkMenu = ({
                             data.map((item, i) => {
                                 return (
                                     <MenuSection
-                                        title={item.fields.title}
                                         language={language}
                                         data={item.fields}
                                         key={i}
@@ -123,6 +138,7 @@ const DrinkMenu = ({
                         </div>
 
                     </div>}
+            </div>
             </div>
         </div>
     )

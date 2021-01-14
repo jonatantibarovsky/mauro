@@ -3,7 +3,7 @@ import { Typography, useMediaQuery } from '@material-ui/core'
 import Mobile from './Mobile'
 
 // assets
-import Intro from '../../assets/bemtatkozas.png'
+import Intro from '../../assets/introduction.png'
 import Tomato from '../../assets/bemtatkozas_tomato.png'
 
 const useStyles = makeStyles(theme => ({
@@ -12,6 +12,8 @@ const useStyles = makeStyles(theme => ({
         height: 'auto',
         position: 'relative',
         display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
         marginBottom: 50,
         [theme.breakpoints.down(1000)]: {
             marginTop: '10%'
@@ -20,11 +22,10 @@ const useStyles = makeStyles(theme => ({
     },
     subContainer: {
         width: '100%',
+        maxWidth: 1400,
         height: 'auto',
         position: 'relative',
-        marginTop: '10%',
         display: 'flex',
-        marginBottom: 50
     },
     introImage: {
 
@@ -123,6 +124,7 @@ const Introduction = ({
             <div className={classes.container} id='intro'>
                 <img src={Tomato} className={classes.tomato}/>
                 <div className={classes.subContainer}>
+                <div className={classes.subContainer}>
                 <div className={classes.introImageContainer}>
                     <img src={Intro} className={classes.introImage} />
                 </div>
@@ -147,6 +149,7 @@ const Introduction = ({
                         }
                     </Typography>
                     </div>
+                </div>
                 </div>
                 </div>
             </div>

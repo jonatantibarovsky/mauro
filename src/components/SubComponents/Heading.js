@@ -5,6 +5,8 @@ const useStyles = makeStyles(theme => ({
     headingContainer: {
         width: '80%',
         display: 'flex',
+        maxWidth: 1000,
+        alignItems: 'flex-start',
         position: 'relative',
         [theme.breakpoints.down('xs')]: {
             width: '95%'

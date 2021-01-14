@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
         fontSize: 18,
         fontFamily: 'PT Sans Narrow',
         color: '#D1D0D1',
+        textAlign: 'right',
         [theme.breakpoints.down('xs')]: {
             fontSize: 16
         }
@@ -32,7 +33,6 @@ const useStyles = makeStyles(theme => ({
         fontSize: 18,
         fontFamily: 'PT Sans Narrow',
         color: '#D1D0D1',
-        marginLeft: 25,
         [theme.breakpoints.down('xs')]: {
             fontSize: 16
         }
@@ -41,7 +41,12 @@ const useStyles = makeStyles(theme => ({
         fontSize: 18,
         fontFamily: 'PT Sans Narrow',
         color: '#DD443D',
-        [theme.breakpoints.down('xs')]: {
+        width: '50%',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        [theme.breakpoints.down(400)]: {
+            width: 50,
             fontSize: 16
         }
     },
@@ -55,7 +60,20 @@ const useStyles = makeStyles(theme => ({
     },
     priceContainer: {
         display: 'flex',
-        width: '25%',
+        width: 100,
+        justifyContent: 'space-between',
+        [theme.breakpoints.down(400)]: {
+            width: 80
+        }
+    },
+    priceIndividual: {
+        width: '50%',
+        display: 'flex',
+        justifyContent: 'flex-end',
+        alignItems: 'flex-end',
+        [theme.breakpoints.down(400)]: {
+            width: 40
+        }
     }
 }))
 
@@ -73,14 +91,19 @@ const Drink = ({
             <div className={classes.foodAndPrice}>
                 <Typography className={classes.food}>{drinkName && drinkName !== 'semmi' && drinkName}</Typography>
                 <div className={classes.priceContainer}>
-                    <Typography className={classes.price}>{price1 && price1 !== 'semmi' && price1}</Typography>
+                    <div className={classes.priceIndividual}>
+                        <Typography className={classes.price}>{price1 && price1 !== 'semmi' && price1}</Typography>
+                    </div>
                     {category1 !== 'semmi' && category2 !== 'semmi' &&
-                        <div style={{width: '100%', display: 'flex'}}>
-                            <Typography className={classes.category} style={{marginRight: 25}}>{category1 && category1 !== 'semmi' && category1}</Typography>
+                        <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+                            <Typography className={classes.category} >{category1 && category1 !== 'semmi' && category1}</Typography>
                             <Typography className={classes.category}>{category2 && category2 !== 'semmi' && category2}</Typography>
                         </div>
                     }
-                    {price2 !== 'semmi' && <Typography className={classes.price2}>{price2 && price2 !== 'semmi' && price2}</Typography>}
+                    {price2 !== 'semmi' &&
+                        <div className={classes.priceIndividual}>
+                            <Typography className={classes.price2}>{price2 && price2 !== 'semmi' && price2}</Typography>
+                        </div>}
                 </div>
             </div>
             <div>

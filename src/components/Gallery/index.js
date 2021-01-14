@@ -11,6 +11,7 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         maxWidth: 1100,
         flexWrap: 'wrap',
+        alignItems: 'flex-start',
         justifyContent: 'center',
         marginTop: '-450px',
         [theme.breakpoints.down('xs')]: {

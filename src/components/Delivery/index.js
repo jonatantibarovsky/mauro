@@ -11,6 +11,7 @@ import Wolt from '../../assets/hazhozszallitas_Wolt.png'
 const useStyles = makeStyles(theme => ({
     container: {
         width: '90%',
+        maxWidth: 1400,
         margin: '0 auto',
         marginBottom: 50,
         paddingBottom: 500,

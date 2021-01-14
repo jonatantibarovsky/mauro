@@ -11,7 +11,7 @@ import Open from '../../assets/open_doodle.png'
 
 const useStyles = makeStyles(theme => ({
     container: {
-        
+        maxWidth: 1400,
         width: '90vw',
         padding: '0 5vh',
         display: 'flex',

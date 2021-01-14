@@ -18,11 +18,19 @@ const useStyles = makeStyles(theme => ({
 
         display: 'flex',
         flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         position: 'relative',
         [theme.breakpoints.down(600)]: {
             margin: '0 auto'
 
         }
+    },
+    subContainer: {
+        width: '100%',
+        maxWidth: 1400,
+        display: 'flex',
+        flexDirection: 'column'
     },
     columns: {
         display: 'flex',
@@ -85,6 +93,7 @@ const FoodMenu = ({
 
     return (
         <div className={classes.container} id='menu'>
+            <div className={classes.subContainer}>
             {pizza && <img src={Pizza1} className={classes.pizza} />}
             {/* <div className={classes.menuImageContainer}>
                 <img src={Pizza} className={classes.pizza}/>
@@ -151,6 +160,7 @@ const FoodMenu = ({
                         </div>
 
                     </div>}
+            </div>
             </div>
             {pizza && <img src={Pizza2} className={classes.pizza2} />}
         </div>

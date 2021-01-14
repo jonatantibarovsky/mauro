@@ -50,7 +50,7 @@ const Day = ({
         <div className={classes.container}>
             <Typography className={classes.day}>{day}</Typography>
             <Typography className={classes.text}>
-                {soup && soup}
+                {soup && soup !== 'semmi' && soup}
             </Typography>
             <Typography className={classes.text}>
             <span className={classes.span}>A</span>

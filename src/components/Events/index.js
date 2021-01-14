@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
         margin: '0 auto',
         position: 'relative',
         marginBottom: 100,
-        
+        maxWidth: 1400
     },
     subContainer: {
         display: 'flex',

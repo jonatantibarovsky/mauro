@@ -19,6 +19,14 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'column',
         alignItems: 'center'
     },
+    subContainer: {
+        display: 'flex',
+        width: '100%',
+        maxWidth: 1400,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
     headingContainer: {
         background: 'red',
         width: '80%',
@@ -185,6 +193,7 @@ const WeeklyMenu = ({
                     </div>
                 </div>
             </div>
+            <div className={classes.subContainer}>
             <Typography className={classes.description}>
                 {language === 'hun' ?
                     'Egész hetes étel megrendelése esetén 10% kedvezményt biztosítunk a menü árából!'
@@ -327,6 +336,7 @@ const WeeklyMenu = ({
                     )
                     </div>
                 }
+            </div>
             </div>
 
         </div>

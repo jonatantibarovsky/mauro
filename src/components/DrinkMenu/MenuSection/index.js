@@ -19,7 +19,10 @@ const useStyles = makeStyles(theme => ({
         color: '#D1D0D1',
         textTransform: 'uppercase',
         fontFamily: 'PT Sans Narrow',
-        marginBottom: 65
+        marginBottom: 65,
+        [theme.breakpoints.down(400)]: {
+            marginBottom: 30
+        }
     },
     bottomText: {
         color: '#D1D0D1',
@@ -40,7 +43,13 @@ const MenuSection = ({
     const classes = useStyles()
     return (
         <div className={classes.container}>
-            <Typography className={classes.title}>{title && title}</Typography>
+            {
+                language === 'hun'
+                ?
+                <Typography className={classes.title}>{data.title && data.title}</Typography>
+                :
+                <Typography className={classes.title}>{data.titleAngol && data.titleAngol}</Typography>
+            }
             {data &&
                 data.drinkName.map((item, i) => {
                     if (language == 'hun') {
