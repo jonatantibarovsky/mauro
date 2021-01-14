@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
         [theme.breakpoints.down(400)]: {
-            width: 50,
+            width: 40,
             fontSize: 16
         }
     },
@@ -91,11 +91,12 @@ const Drink = ({
             <div className={classes.foodAndPrice}>
                 <Typography className={classes.food}>{drinkName && drinkName !== 'semmi' && drinkName}</Typography>
                 <div className={classes.priceContainer}>
-                    <div className={classes.priceIndividual}>
-                        <Typography className={classes.price}>{price1 && price1 !== 'semmi' && price1}</Typography>
-                    </div>
+                    {price1 !== 'semmi' &&
+                        <div className={classes.priceIndividual}>
+                            <Typography className={classes.price}>{price1 && price1 !== 'semmi' && price1}</Typography>
+                        </div>}
                     {category1 !== 'semmi' && category2 !== 'semmi' &&
-                        <div style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}>
+                        <div className={classes.priceContainer}>
                             <Typography className={classes.category} >{category1 && category1 !== 'semmi' && category1}</Typography>
                             <Typography className={classes.category}>{category2 && category2 !== 'semmi' && category2}</Typography>
                         </div>
