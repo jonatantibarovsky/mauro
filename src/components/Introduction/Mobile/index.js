@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/styles'
 import { Typography } from '@material-ui/core'
 
 // assets
-import Intro from '../../../assets/bemtatkozas.png'
+import Intro from '../../../assets/introduction.png'
 import Tomato from '../../../assets/bemtatkozas_tomato.png'
 
 const useStyles = makeStyles({
