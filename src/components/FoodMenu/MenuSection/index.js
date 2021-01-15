@@ -5,7 +5,7 @@ import Food from '../Food'
 
 const useStyles = makeStyles(theme => ({
     container: {
-        marginBottom: 150,
+        marginBottom: 100,
         width: '90%',
         [theme.breakpoints.down('sm')]: {
             width: '70%'
