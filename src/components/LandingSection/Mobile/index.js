@@ -109,22 +109,24 @@ const LandingSection = ({
             <div className={classes.details}>
                 <div className={classes.detail1}>
                     <div>
-                    <Typography className={classes.header}>{language === 'hun' ? 'nyitvatartás' : 'opening times'}</Typography>
-                    <Typography className={classes.text}>H-P 11:00 - 20:00</Typography>
-                    <Typography className={classes.text}>Sz-V 12:00 - 21:00</Typography>
+                        <Typography className={classes.header}>{language === 'hun' ? 'nyitvatartás' : 'opening times'}</Typography>
+                        <Typography className={classes.text}>V-Cs 10:00 - 22:00</Typography>
+                        <Typography className={classes.text}>P-Sz 10:00 - 23:00</Typography>
                     </div>
                 </div>
                 <div className={classes.detail2}>
-                    
+
                     <Typography className={classes.header}>{language === 'hun' ? 'rendelés' : 'delivery'}</Typography>
-                    <Typography className={classes.text}>+3622304141</Typography>
-                    
+                    <a href='tel:+3622304141'>
+                        <Typography className={classes.text}>+3622304141</Typography>
+                    </a>
+
                 </div>
                 <div className={classes.detail3}>
                     <div>
-                    <Typography className={classes.header}>{language === 'hun' ? 'cím' : 'address'}</Typography>
-                    <Typography className={classes.text}>Székesfehérvár</Typography>
-                    <Typography className={classes.text}>Kossuth utca 4.</Typography>
+                        <Typography className={classes.header}>{language === 'hun' ? 'cím' : 'address'}</Typography>
+                        <Typography className={classes.text}>Székesfehérvár</Typography>
+                        <Typography className={classes.text}>Kossuth utca 4.</Typography>
                     </div>
                 </div>
             </div>

@@ -28,7 +28,7 @@ const useStyles = makeStyles(theme => ({
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            
+
         },
     },
     map: {
@@ -103,12 +103,15 @@ const ContactMapSection = ({
                 </div>
                 <div className={classes.iconsContainer}>
                     <img src={Open} className={classes.icon} />
-                    <Typography className={classes.detail}>H-V 10:00-22:00</Typography>
+                    <div>
+                        <Typography className={classes.detail}>V-Cs 10:00 - 22:00</Typography>
+                        <Typography className={classes.detail}>P-Sz 10:00 - 23:00</Typography>
+                    </div>
                 </div>
 
             </div>
             <a href='https://goo.gl/maps/fEZzDFxKdHHCrW2o8'>
-            <img src={Map} className={classes.map} />
+                <img src={Map} className={classes.map} />
             </a>
 
         </div>

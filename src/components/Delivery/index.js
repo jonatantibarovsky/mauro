@@ -4,7 +4,7 @@ import { Typography, Button } from '@material-ui/core'
 import Moped from '../../assets/hazhoz_moped.png'
 import Boxes from '../../assets/hazhoz_boxes.png'
 import Texture from '../../assets/hazhoz_texture.png'
-import Logo from '../../assets/logo_hero.png'
+import Logo from '../../assets/hazhozszallitas_CaffeMauro.png'
 import Netpincer from '../../assets/hazhozszallitas_netpincer.png'
 import Wolt from '../../assets/hazhozszallitas_Wolt.png'
 
@@ -143,7 +143,7 @@ const Item = ({
                     {company === 'wolt' && <img src={Wolt} className={classes.logo}/>}
                     {company === 'netpincer' && <img src={Netpincer} className={classes.logo}/>}
                     
-                    {company === 'telefon' && <a href='tel:+36302346105' className={classes.button}>rendeles</a>}
+                    {company === 'telefon' && <a href='tel:+3622304141' style={{marginBottom: 15}} className={classes.button}>rendeles</a>}
                     {company === 'wolt' && <a href='https://www.wolt.com/en/hun/szekesfehervar/restaurant/caffe-mauro' target="_blank" style={{marginBottom: 15}} className={classes.button}>rendeles</a>}
                     {company === 'netpincer' && <a href='https://www.netpincer.hu/restaurant/a2mk/caffe-mauro#' target="_blank" style={{marginBottom: 15}} className={classes.button}>rendeles</a>}
                 </div>
