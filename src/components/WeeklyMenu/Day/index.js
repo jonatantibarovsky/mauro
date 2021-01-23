@@ -53,16 +53,16 @@ const Day = ({
                 {soup && soup !== 'semmi' && soup}
             </Typography>
             <Typography className={classes.text}>
-            <span className={classes.span}>A</span>
-                {aMenu && aMenu}
+            <span className={classes.span}>{aMenu !== 'semmi' && 'A'}</span>
+                {aMenu && aMenu !== 'semmi' && aMenu}
             </Typography>
             <Typography className={classes.text}>
-            <span className={classes.span}>B</span>
-                {bMenu && bMenu}
+            <span className={classes.span}>{bMenu !== 'semmi' && 'B'}</span>
+                {bMenu && bMenu !== 'semmi' && bMenu}
             </Typography>
             <Typography className={classes.text}>
-            <span className={classes.span}>C</span>
-                {cMenu && cMenu}
+            <span className={classes.span}>{cMenu !== 'semmi' && 'C'}</span>
+                {cMenu && cMenu !== 'semmi' && cMenu}
             </Typography>
         </div>
     )

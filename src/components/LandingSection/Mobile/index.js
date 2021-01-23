@@ -4,6 +4,7 @@ import { Typography } from '@material-ui/core'
 // assets
 import Landing from '../../../assets/hero_video.png'
 import Logo from '../../../assets/logo_hero.png'
+import Video from '../../../assets/IMG_0012.MP4'
 
 
 const useStyles = makeStyles(theme => ({
@@ -94,7 +95,35 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('xs')]: {
             fontSize: 16
         }
-    }
+    },
+    video: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        zIndex: 1
+    },
+    gradient: {
+        zIndex: 2,
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        background: 'linear-gradient(180deg, #00000000 0%, #1A1A1C 100%)'
+    },
+    logoHero: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '25%',
+        maxWidth: 400,
+        height: 'auto',
+        zIndex: 2
+    },
 }))
 
 const LandingSection = ({
@@ -104,6 +133,20 @@ const LandingSection = ({
     return (
         <div>
             <div className={classes.container}>
+                
+            <div className={classes.gradient}>
+
+</div>
+            <video 
+                    className={classes.video}
+                    autoPlay
+                    muted
+                    disablePictureInPicture
+                    loop
+                    playsInline
+                >
+                    <source src={Video} />
+                </video>
                 <img src={Logo} className={classes.logoHero} />
             </div>
             <div className={classes.details}>
@@ -117,7 +160,7 @@ const LandingSection = ({
                 <div className={classes.detail2}>
 
                     <Typography className={classes.header}>{language === 'hun' ? 'rendelés' : 'delivery'}</Typography>
-                    <a href='tel:+3622304141'>
+                    <a href='tel:+3622304141' style={{textDecoration: 'none'}}>
                         <Typography className={classes.text}>+3622304141</Typography>
                     </a>
 
