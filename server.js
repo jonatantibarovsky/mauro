@@ -19,8 +19,8 @@ http.createServer(app).listen(80);
 
 console.log('server is running')
 
-/* https.createServer({
+https.createServer({
   key: privateKey,
   cert: certificate,
   passphrase: '0213456789ABC'
-}, app).listen(443) */
+}, app).listen(443)
