@@ -11,6 +11,7 @@ import Delivery from './components/Delivery'
 import Gallery from './components/Gallery'
 import ContactMapSection from './components/ContactMapSection'
 import Contact from './components/Contact'
+import Banner from './components/Banner'
 
 // assets
 import Background from './assets/BG@2x.jpg'
@@ -55,6 +56,7 @@ const App = () => {
   const [showMenu, setShowMenu] = useState(false)
   const [gallery, setGallery] = useState(null)
   const [delivery, setDelivery] = useState(null)
+  const [banner, setBanner] = useState(null)
 
   const aboutUsRef = useRef(null)
   const weeklyRef = useRef(null)
@@ -80,6 +82,9 @@ const App = () => {
             setGallery(item.fields)
           } else if (item.sys.contentType.sys.id === 'delivery') {
             setDelivery(item.fields)
+          } else if (item.sys.contentType.sys.id === 'banner') {
+            console.log(item.fields)
+            setBanner(item.fields)
           }
         })
         setFoodMenu(foodMenuSections)
@@ -90,6 +95,7 @@ const App = () => {
 
   return (
     <div className={classes.container}>
+      
       <Navbar 
         language={language}
         setLanguage={setLanguage}
@@ -97,6 +103,7 @@ const App = () => {
         showMenu={showMenu}
         setShowMenu={setShowMenu}
       />
+      {banner && banner.bekapcsolva && <Banner data={banner}/>}
       <div className={classes.backgroundImage}>
         <LandingSection
           language={language}
