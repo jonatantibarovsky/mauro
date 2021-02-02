@@ -103,7 +103,7 @@ const App = () => {
         showMenu={showMenu}
         setShowMenu={setShowMenu}
       />
-      {banner &&  <Banner data={banner}/>}
+      {banner && banner.bekapcsolva && <Banner data={banner}/>}
       <div className={classes.backgroundImage}>
         <LandingSection
           language={language}
