@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef, useReducer } from 'react'
+
+import ReactGA from 'react-ga'
+
 // components
 import Navbar from './components/Navbar'
 import LandingSection from './components/LandingSection'
@@ -91,6 +94,9 @@ const App = () => {
         setDrinkMenu(drinkMenuSections)
       })
       .catch(console.error)
+
+    ReactGA.initialize('UA-189392348-1')
+    ReactGA.pageview(window.location.pathname + window.location.search)
   }, [])
 
   return (
